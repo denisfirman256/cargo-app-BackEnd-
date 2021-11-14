@@ -17,9 +17,21 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+    public $incrementing = false;
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'name',
+        'id',
+        'id_office',
+        'photo',
+        'first_name',
+        'last_name',
+        'no_telp',
         'email',
+        'level',
+        'status',
         'password',
     ];
 
