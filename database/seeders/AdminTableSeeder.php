@@ -17,7 +17,7 @@ class AdminTableSeeder extends Seeder
     {
         DB::table('users')->insert([
         	'id' => Uuid::uuid4()->getHex(),
-        	'id_office' => 1,
+        	'office_id' => 1,
         	'photo' => "photo.jpg",
         	'first_name' => "ihsan",
         	'last_name' => "karunia",

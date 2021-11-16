@@ -43,6 +43,13 @@ class AuthController extends Controller
 
     		return response()->json($data, 200);
     	}
+
+        $message = array(
+            'status_code' => 404,
+            'message' => 'Email dan Password salah, cek kembali Email & Password'
+        );
+
+        return response()->json($message, 404);
     }
 
     public function logout()
