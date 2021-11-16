@@ -173,9 +173,14 @@ class AddressOfficeController extends Controller
             return response()->json($message, 404);
         }
 
-        $update = $item->update($request->all());
+        $item->name_office = $request->name_office;
+        $item->no_telp_office = $request->no_telp_office;
+        $item->address_office = $request->address_office;
+        $item->longtitude = $request->longtitude;
+        $item->latitude = $request->latitude;
+        $item->save();
 
-        if (!$update) {
+        if (!$item->save()) {
 
             $message = array(
                 'status_code' => 404,
