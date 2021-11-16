@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\APIController\HeadOffice\AddressOfficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,10 @@ Route::prefix('v1')->group(function() {
 		// Get Profile Login
 		Route::get('auth/me', [App\Http\Controllers\APIController\AuthController::class, 'me'])->name('profile');
 
+		// Owner 
+		Route::resource('address_office', AddressOfficeController::class);
+
 	});
-	
 
 });
 
