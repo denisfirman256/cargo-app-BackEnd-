@@ -19,7 +19,7 @@ class CategoryStuffController extends Controller
 
         $result = CategoryStuff::all();
 
-        if ($result == null) {
+        if (!$result) {
             
             $message[] = [
                 'status_code' => 404,
@@ -101,7 +101,7 @@ class CategoryStuffController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
-                'name_category' => $item->name_office,
+                'name_category' => $item->name_category,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )

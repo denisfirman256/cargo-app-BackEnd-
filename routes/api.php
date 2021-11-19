@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController\HeadOffice\AddressOfficeController;
 use App\Http\Controllers\APIController\HeadOffice\CategoryStuffController;
-use App\Http\Controllers\APIController\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +19,16 @@ use App\Http\Controllers\APIController\AuthController;
 Route::prefix('v1')->group(function() {
 
 	// Auth Login
-	Route::post('login', [AuthController::class, 'login'])->name('login');
+	Route::post('login', [App\Http\Controllers\APIController\AuthController\AuthController::class, 'login'])->name('login');
 
 	//Protecting Routes
 	Route::group(['middleware' => ['auth:sanctum']], function () {
 
 		// Auth Logout
-		Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+		Route::get('logout', [App\Http\Controllers\APIController\AuthController\AuthController::class, 'logout'])->name('logout');
 
 		// Get Profile Login
-		Route::get('auth/me', [AuthController::class, 'me'])->name('profile');
+		Route::get('auth/me', [App\Http\Controllers\APIController\AuthController\AuthController::class, 'me'])->name('profile');
 
 		// Address Office
 		Route::resource('address_office', AddressOfficeController::class);
