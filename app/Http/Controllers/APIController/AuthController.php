@@ -64,7 +64,7 @@ class AuthController extends Controller
 
     	$data = array( 
     		'authme' => array(
-	    		'id_office' => $user->id_office,
+	    		'office_id' => $user->office_id,
 	    		'photo' => $user->photo,
 	    		'first_name' => $user->first_name,
 	    		'last_name' => $user->last_name,

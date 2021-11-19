@@ -11,5 +11,5 @@ class Transportation extends Model
 
     protected $primaryKey = 'id';
     protected $guarded = [];
-    protected $table = 'transportation';
+    protected $table = 'transportations';
 }

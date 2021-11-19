@@ -27,7 +27,7 @@ class AddressOfficeController extends Controller
         if(empty($data)){
             $message[] = [
                 'status_code' => 404,
-                'message' => 'Data alamat tidak ada'
+                'message' => 'Data tidak ada'
             ];
 
             return response()->json($message, 404);
