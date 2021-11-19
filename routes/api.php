@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\APIController\HeadOffice\AddressOfficeController;
-use App\Http\Controllers\APIController\HeadOffice\CategoryStuffController;
+use App\Http\Controllers\APIController\AddressOfficeController;
+use App\Http\Controllers\APIController\CategoryStuffController;
 
 /*
 |--------------------------------------------------------------------------

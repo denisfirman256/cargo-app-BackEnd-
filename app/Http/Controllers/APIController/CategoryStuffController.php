@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\APIController\HeadOffice;
+namespace App\Http\Controllers\APIController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\AddressOffice;
+use App\Models\CategoryStuff;
 
-class AddressOfficeController extends Controller
+class CategoryStuffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,23 +15,24 @@ class AddressOfficeController extends Controller
      */
     public function index()
     {
-        // Get Data Address Office
+        // Get Data Category Stuff
 
-        $addressOffice = AddressOffice::all();
+        $result = CategoryStuff::all();
 
-        $data[] = [
-            'status_code' => 200,
-            'address_office' => $addressOffice
-        ];
-
-        if(empty($data)){
+        if (!$result) {
+            
             $message[] = [
                 'status_code' => 404,
-                'message' => 'Data alamat tidak ada'
+                'message' => 'Data kategori barang masih kosong'
             ];
 
             return response()->json($message, 404);
         }
+
+        $data[] = [
+            'status_code' => 200,
+            'data' => $result
+        ];
 
         return response()->json($data, 200);
     }
@@ -56,7 +57,7 @@ class AddressOfficeController extends Controller
     {
         // Store Data Address Office
 
-        $insertData = AddressOffice::create($request->all());
+        $insertData = CategoryStuff::create($request->all());
 
         if (!$insertData) {
             $data[] = [
@@ -84,7 +85,7 @@ class AddressOfficeController extends Controller
     {
         // Find by ID
 
-        $item = AddressOffice::find($id);
+        $item = CategoryStuff::find($id);
 
         if (!$item) {
             
@@ -100,11 +101,7 @@ class AddressOfficeController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
-                'name_office' => $item->name_office,
-                'no_telp_office' => $item->no_telp_office,
-                'address_office' => $item->address_office,
-                'longtitude' => $item->longtitude,
-                'latitude' => $item->latitude,
+                'name_category' => $item->name_category,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )
@@ -123,7 +120,7 @@ class AddressOfficeController extends Controller
     {
         // Edit by ID
 
-        $item = AddressOffice::find($id);
+        $item = CategoryStuff::find($id);
 
         if (!$item) {
             
@@ -139,11 +136,7 @@ class AddressOfficeController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
-                'name_office' => $item->name_office,
-                'no_telp_office' => $item->no_telp_office,
-                'address_office' => $item->address_office,
-                'longtitude' => $item->longtitude,
-                'latitude' => $item->latitude,
+                'name_category' => $item->name_office,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )
@@ -161,7 +154,7 @@ class AddressOfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = AddressOffice::find($id);
+        $item = CategoryStuff::find($id);
 
         if (!$item) {
             
@@ -173,11 +166,7 @@ class AddressOfficeController extends Controller
             return response()->json($message, 404);
         }
 
-        $item->name_office = $request->name_office;
-        $item->no_telp_office = $request->no_telp_office;
-        $item->address_office = $request->address_office;
-        $item->longtitude = $request->longtitude;
-        $item->latitude = $request->latitude;
+        $item->name_category = $request->name_category;
         $item->save();
 
         if (!$item->save()) {
@@ -194,18 +183,13 @@ class AddressOfficeController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
-                'name_office' => $item->name_office,
-                'no_telp_office' => $item->no_telp_office,
-                'address_office' => $item->address_office,
-                'longtitude' => $item->longtitude,
-                'latitude' => $item->latitude,
+                'name_category' => $item->name_category,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )
         );
 
         return response()->json($item, 200);
-
     }
 
     /**
@@ -218,7 +202,7 @@ class AddressOfficeController extends Controller
     {
         // Delete by ID
 
-        $item = AddressOffice::find($id);
+        $item = CategoryStuff::find($id);
 
         if (!$item) {
             
@@ -249,7 +233,5 @@ class AddressOfficeController extends Controller
         );
 
         return response()->json($message, 200);
-
-
     }
 }
