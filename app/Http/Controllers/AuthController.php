@@ -34,7 +34,7 @@ class AuthController extends Controller
 
     		header('Authorization: '.$token);
 
-    		return response()->json($data, 200);
+    		return redirect('/dashboard');
     	}
 
     	return redirect()->back()->with('error', 'Email & Password tidak ditemukan!');
