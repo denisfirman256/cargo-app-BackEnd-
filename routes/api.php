@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController\AddressOfficeController;
 use App\Http\Controllers\APIController\CategoryStuffController;
+use App\Http\Controllers\APIController\TransportationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::prefix('v1')->group(function() {
 		Route::resource('address_office', AddressOfficeController::class);
 		// Category Stuff
 		Route::resource('category_stuff', CategoryStuffController::class);
+		// Transportations
+		Route::resource('transportation', TransportationController::class);
 
 
 	});

@@ -16,6 +16,7 @@ class CreateTransportationsTable extends Migration
         Schema::create('transportations', function (Blueprint $table) {
             $table->id();
             $table->enum('status', ['used','not used']);
+            $table->string('transportation_type');
             $table->string('capacity');
             $table->string('unit_weight');
             $table->string('license_plate');
