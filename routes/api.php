@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController\AddressOfficeController;
 use App\Http\Controllers\APIController\CategoryStuffController;
 use App\Http\Controllers\APIController\TransportationController;
+use App\Http\Controllers\APIController\CourierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::prefix('v1')->group(function() {
 		Route::resource('category_stuff', CategoryStuffController::class);
 		// Transportations
 		Route::resource('transportation', TransportationController::class);
+		// Courier
+		Route::resource('courier', CourierController::class);
 
 
 	});

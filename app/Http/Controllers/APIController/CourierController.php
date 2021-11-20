@@ -4,9 +4,11 @@ namespace App\Http\Controllers\APIController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Courier;
 use App\Models\Transportation;
+use App\Models\User;
 
-class TransportationController extends Controller
+class CourierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,21 +19,32 @@ class TransportationController extends Controller
     {
         // Get Data Address Office
 
-        $item = Transportation::all();
+        $item = Courier::all();
 
-        $data[] = [
-            'status_code' => 200,
-            'data' => $item
-        ];
+        foreach ($item as $item) {
+            $courier[] = [
+                'id' => $item->id,
+                'courier_name' => User::where('id', '=', $item->user_id)->first(),
+                'transportation' => Transportation::where('id', '=', $item->transportation_id)->first(),
+                'status' => $item->status,
+                'created_at' => $item->created_at,
+                'updated_at' => $item->updated_at
+            ];
+        }
 
-        if(empty($data)){
+        if(empty($courier)){
             $message[] = [
                 'status_code' => 404,
-                'message' => 'Data alamat tidak ada'
+                'message' => 'Data tidak ada'
             ];
 
             return response()->json($message, 404);
         }
+
+        $data[] = [
+            'status_code' => 200,
+            'data' => $courier
+        ];
 
         return response()->json($data, 200);
     }
@@ -43,7 +56,7 @@ class TransportationController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -55,14 +68,28 @@ class TransportationController extends Controller
     public function store(Request $request)
     {
         // Store Data 
+        $validateCourier = User::where('id', '=', $request->user_id)->first()->level;
 
-        $insertData = Transportation::create($request->all());
+        if ($validateCourier != "courier") {
+
+            $data[] = [
+                'status_code' => 400,
+                'message' => 'User ini bukan courier'
+            ];
+
+            return response()->json($data, 404);
+        }
+        
+
+        $insertData = Courier::create($request->all());
 
         if (!$insertData) {
             $data[] = [
                 'status_code' => 400,
                 'message' => 'Data tidak berhasil di simpan'
             ];
+
+            return response()->json($data, 404);
         }
 
         $data[] = [
@@ -83,7 +110,7 @@ class TransportationController extends Controller
     {
         // Find by ID
 
-        $item = Transportation::find($id);
+        $item = Courier::find($id);
 
         if (!$item) {
             
@@ -99,11 +126,9 @@ class TransportationController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
+                'user_id' => User::where('id', '=', $item->user_id)->first(),
+                'transportation_id' => Transportation::where('id', '=', $item->transportation_id)->first(),
                 'status' => $item->status,
-                'transportation_type' => $item->transportation_type,
-                'capacity' => $item->capacity,
-                'unit_weight' => $item->unit_weight,
-                'license_plate' => $item->license_plate,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )
@@ -122,7 +147,7 @@ class TransportationController extends Controller
     {
         // Edit by ID
 
-        $item = Transportation::find($id);
+        $item = Courier::find($id);
 
         if (!$item) {
             
@@ -138,11 +163,9 @@ class TransportationController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
+                'user_id' => User::where('id', '=', $item->user_id)->first(),
+                'transportation_id' => Transportation::where('id', '=', $item->transportation_id)->first(),
                 'status' => $item->status,
-                'transportation_type' => $item->transportation_type,
-                'capacity' => $item->capacity,
-                'unit_weight' => $item->unit_weight,
-                'license_plate' => $item->license_plate,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )
@@ -160,7 +183,7 @@ class TransportationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Transportation::find($id);
+        $item = Courier::find($id);
 
         if (!$item) {
             
@@ -172,11 +195,9 @@ class TransportationController extends Controller
             return response()->json($message, 404);
         }
 
+        $item->user_id = $request->user_id;
+        $item->transportation_id = $request->transportation_id;
         $item->status = $request->status;
-        $item->transportation_type = $request->transportation_type;
-        $item->capacity = $request->capacity;
-        $item->unit_weight = $request->unit_weight;
-        $item->license_plate = $request->license_plate;
         $item->save();
 
         if (!$item->save()) {
@@ -193,17 +214,15 @@ class TransportationController extends Controller
             'status_code' => 200,
             'data' => array(
                 'id' => $item->id,
+                'user_id' => User::where('id', '=', $item->user_id)->first(),
+                'transportation_id' => Transportation::where('id', '=', $item->transportation_id)->first(),
                 'status' => $item->status,
-                'transportation_type' => $item->transportation_type,
-                'capacity' => $item->capacity,
-                'unit_weight' => $item->unit_weight,
-                'license_plate' => $item->license_plate,
                 'created_at' => $item->created_at,
                 'updated_at' => $item->updated_at
             )
         );
 
-        return response()->json($item, 200);
+        return response()->json($message, 200);
     }
 
     /**
@@ -216,7 +235,7 @@ class TransportationController extends Controller
     {
         // Delete by ID
 
-        $item = Transportation::find($id);
+        $item = Courier::find($id);
 
         if (!$item) {
             
