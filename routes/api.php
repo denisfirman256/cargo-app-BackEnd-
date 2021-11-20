@@ -31,6 +31,12 @@ Route::prefix('v1')->group(function() {
 
 		// Get Profile Login
 		Route::get('auth/me', [App\Http\Controllers\APIController\AuthController::class, 'me'])->name('profile');
+		// Edit Profile
+		Route::post('auth/edit/me', [App\Http\Controllers\APIController\AuthController::class, 'editProfile'])->name('edit.profile');
+		// Edit Photo Profile
+		Route::post('auth/edit/photo_me', [App\Http\Controllers\APIController\AuthController::class, 'editPhotoProfile'])->name('edit.photo_profile');
+		// Edit Password
+		Route::post('auth/edit/password_me', [App\Http\Controllers\APIController\AuthController::class, 'editPassword'])->name('edit.password_profile');
 
 		// Address Office
 		Route::resource('address_office', AddressOfficeController::class);
