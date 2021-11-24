@@ -63,11 +63,16 @@ export default {
           localStorage.setItem('authenticated', true);
           localStorage.setItem('token', response.data.token);
           this.$router.push({
-            name: 'Dashboard'
-          }).catch(() => {});
+            name: 'App'
+          })
         }
       }).catch((error) => {
-        console.log(error.response.data.status_code)
+        this.$notify({
+          title: 'Gagal Login',
+          type: 'error',
+          text: error.response.data.message
+        });
+        console.log(error.response.data.message)
       });
     }
   }

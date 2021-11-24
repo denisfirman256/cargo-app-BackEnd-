@@ -1,8 +1,6 @@
 $primary-color : #3BCEAC;
 $hover-prim-color : #46F3CB;
 
-
-
 body {
   margin: 0px;
   padding: 0px;
@@ -12,6 +10,15 @@ body {
   color: #464646 !important;
 
 }
+
+.font-weight-semi-bold {
+  font-weight: 600 !important;
+}
+
+.font-weight-medium {
+  font-weight: 500 !important;
+}
+
 
 .btn {
   background-color: #EFF2F9;
@@ -23,6 +30,10 @@ body {
 .bg-dashboard {
   background: #EFF2F9 !important;
   box-shadow: -6px -6px 20px rgba(255, 255, 255, 0.8), 6px 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.bg-secondary {
+  background-color: #EFF2F9;
 }
 
 .btn-primary {
@@ -69,16 +80,17 @@ a {
       padding: 10px 10px 10px 52px !important;
       box-sizing: border-box;
       background-color: #EFF2F9 !important;
+      transition: all 0.3s ease-in-out;
 
       &:focus {
         box-shadow: 0px 0px 10px 2px rgba(59, 206, 172, 0.25), inset -6px -6px 20px rgba(255, 255, 255, 0.8);
         border-color: $primary-color;
-        transition: cubic-bezier(0.215, 0.610, 0.355, 1);
       }
     }
   }
 }
 
+// Polygon login page
 #img {
   .polygon-1 {
     position: absolute;
@@ -170,6 +182,10 @@ a {
 
 }
 
+// /Polygon Login Page
+
+
+// Forgot Page
 .forgot-page {
   height: 100vh !important;
 
@@ -204,7 +220,10 @@ a {
   }
 }
 
-.wrapper {
+
+// Admin Page
+.wrapper-nav {
+  color: #6E7F8D;
   position: relative;
   width: 100%;
 
@@ -267,6 +286,7 @@ a {
 
 
             &:hover {
+              transition: all 0.3s ease-in-out;
               box-shadow: inset -3px -3px 10px rgba(255, 255, 255, 0.8), inset 3px 3px 10px rgba(0, 0, 0, 0.2);
             }
           }
@@ -286,10 +306,9 @@ a {
   }
 
   .main {
-    position: absolute;
+    position: relative;
     width: calc(100% - 171px);
     left: 171px;
-    min-height: 100vh;
     transition: 0.3s ease-in-out;
 
   }
@@ -336,9 +355,17 @@ a {
           height: 58px;
           padding: 5px 20px;
           box-shadow: inset -6px -6px 20px rgba(255, 255, 255, 0.8), inset 6px 6px 20px rgba(0, 0, 0, 0.2);
+          background-color: #EFF2F9;
           border-radius: 12px;
           border: transparent;
           padding-left: 60px;
+          transition: all 0.3s ease-in-out;
+
+          &:focus {
+            box-shadow: 0px 0px 10px 2px rgba(59, 206, 172, 0.25), inset -6px -6px 20px rgba(255, 255, 255, 0.8);
+            background-color: #FFF;
+            border-color: $primary-color;
+          }
         }
 
         .search-icon {
@@ -349,6 +376,99 @@ a {
         }
       }
     }
+
+    .dropdown {
+
+      button {
+        background-color: #EFF2F9 !important;
+        border-color: transparent !important;
+        color: #6E7F8D !important;
+        font-weight: bold;
+
+        &::after {
+          margin-left: 12px;
+        }
+      }
+
+      .dropdown-menu {
+        background-color: #EFF2F9 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transition: all 0.3s ease-in-out;
+
+        li {
+
+          a {
+            color: #6E7F8D !important;
+            font-weight: 600;
+            height: 55px;
+            align-items: center;
+            display: flex;
+
+            span {
+              padding: 13px 0px;
+              border-radius: 50%;
+              width: 55px;
+              height: 55px;
+            }
+          }
+        }
+      }
+    }
   }
 
+}
+
+.wrapper-main {
+  color: #6E7F8D;
+  position: relative;
+  width: calc(100% - 171px);
+  left: 171px;
+  overflow-x: hidden;
+
+  .dashboard {
+
+    .card {
+      background-color: #EFF2F9;
+      box-shadow: -6px -6px 20px rgba(255, 255, 255, 0.8), 6px 6px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 24px;
+      border: transparent;
+      min-height: 150px;
+
+      .card-body {
+
+        .content-sum {
+          font-weight: 500;
+        }
+
+        .list-group {
+          overflow-y: scroll;
+          max-height: 435px;
+
+          .list-group-item {
+            padding: 12px 6px;
+            background-color: #EFF2F9;
+            border: transparent;
+
+            .status {
+              .round-online {
+                background-color: #3BCEAC;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+
+        .icon {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          padding: 7px;
+        }
+      }
+
+    }
+  }
 }

@@ -19,9 +19,5 @@ Route::get('/', function () {
 
 
 Route::get('/{any}', function() {
-  return view('login');
-})->where('any', '.*');
-
-Route::get('/dashboard', function(){
-  return view('admin.index');
+  return view('index');
 })->where('any', '.*');

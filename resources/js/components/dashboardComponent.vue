@@ -1,7 +1,8 @@
 <template>
   <!-- sidebar -->
   <section v-if="user">
-    <div class="wrapper navbar-cargo">
+    <div class="wrapper-nav navbar-cargo">
+      <!-- Sidebar -->
       <div class="navigation">
         <ul>
           <div class="brand-sidebar">
@@ -119,7 +120,7 @@
               </a>
             </li>
             <li>
-              <a href="#" @click.prevent="handleClick">
+              <a href="#" @click.prevent="logout">
                 <span class="icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.1 16.44C14.79 20.04 12.94 21.51 8.88997 21.51L8.75997 21.51C4.28997 21.51 2.49997 19.72 2.49997 15.25L2.49997 8.72995C2.49997 4.25993 4.28997 2.46993 8.75997 2.46993L8.88997 2.46993C12.91 2.46993 14.76 3.91993 15.09 7.45995" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -133,17 +134,19 @@
           </div>
         </ul>
       </div>
+      <!-- /Sidebar -->
       <div class="main">
+        <!-- Navbar -->
         <div class="topbar">
           <!-- Title -->
           <div class="title d-none d-sm-none d-md-none d-lg-block d-xl-block ml-3">
-            <h5 class="font-weight-bolc" v-if="user.first_name">Halo {{user.first_name}}</h5>
+            <h5 class="font-weight-bolc">Dashboard</h5>
           </div>
           <!-- /Title -->
           <!-- search -->
           <div class="search ml-3">
             <label>
-              <img :src="'libraries/images/icons/search-normal.svg'" alt="" class="search-icon">
+              <img :src="'../libraries/images/icons/search-normal.svg'" alt="" class="search-icon">
               <input class="form-control" type="text" id="search" placeholder="Search Here">
             </label>
           </div>
@@ -155,17 +158,23 @@
           <!-- /Date -->
           <!-- user img -->
           <div class="user ml-3">
-            <img :src="'libraries/images/404_img.png'" >
+            <img :src="'../libraries/images/404_img.png'" >
           </div>
           <!-- /user img -->
           <div>
-            <b-dropdown text="Asep" block variant="primary" class="m-2">
-              <b-dropdown-item href="#">Action</b-dropdown-item>
-              <b-dropdown-item href="#">Another action</b-dropdown-item>
-              <b-dropdown-item href="#">Something else here</b-dropdown-item>
+            <b-dropdown :text="user.first_name+' '+user.last_name" block variant="primary" class="m-2 ml-4">
+              <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/profile-circle.svg'" alt="Profile"></span> Profil</b-dropdown-item>
+              <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/log.svg'" alt="Profile"></span> Log Aktivitas</b-dropdown-item>
+              <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/archive.svg'" alt="Profile"></span> Pengaturan</b-dropdown-item>
+              <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/setting.svg'" alt="Profile"></span> Arsip</b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item href="javascript:void(0)" @click="logout"><span><img :src="'../libraries/images/icons/power.svg'" alt="Profile"></span> Logout</b-dropdown-item>
             </b-dropdown>
           </div>
         </div>
+        <!-- /Navbar -->
+        <!-- Main Content -->
+        <!-- /Main Content -->
       </div>
     </div>
   </section>
@@ -174,38 +183,42 @@
 
 <script>
 export default {
+  
   data() {
     return {
       // State Token
       token: localStorage.getItem('token'),
       // State User Login
-      user : {},
+      user : {
+      },
 
       errors: {}
     }
   },
+  mounted() {
+    this.getAdmin();
+  },
   methods: {
-    handleClick(){
+    logout(){
+      // Remove Token
       localStorage.removeItem('authenticated', false);
       localStorage.removeItem('token');
       this.$router.push({
         name: 'Login'
-      })
+      });
     },
-    getUser(){
+    getAdmin(){
       axios.get('/api/v1/auth/me', {headers : {Authorization: 'Bearer '+this.token}}).then((response) => {
         this.user = response.data.authme
+        console.log(this.user)
       }).catch((error) => {
         if(error.response.status) {
           this.$router.push({
             name: 'Login'
           })
         }
-      })
-    }
-  },
-  mounted() {
-    this.getUser();
+      });
+    } 
   }
 }
 // localStorage.removeItem('authenticated', false);

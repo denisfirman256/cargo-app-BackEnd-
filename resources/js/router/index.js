@@ -9,22 +9,31 @@ import ForgotPassword from '../pages/ForgotPassword.vue';
 import NotFound from '../pages/NotFound.vue';
 // Guest
 
-import Dashboard from '../pages/admin/Dashboard.vue';
+import App from '../admin/App.vue';
 
 const routes = [{
     name: 'Login',
     path: '/login',
-    component: Login
+    component: Login,
+    meta: {
+      layout: "Login"
+    }
   },
   {
     name: 'ForgotPassword',
     path: '/login/forgot_password',
-    component: ForgotPassword
+    component: ForgotPassword,
+    meta: {
+      layout: "Login"
+    }
   },
   {
-    name: 'Dashboard',
-    path: '/dashboard',
-    component: Dashboard
+    name: 'App',
+    path: '/admin/dashboard',
+    component: App,
+    meta: {
+      layout: "App"
+    }
   },
   {
     path: '*',
@@ -38,6 +47,7 @@ const router = new VueRouter({
   routes
 });
 
+
 router.beforeEach((to, from, next) => {
   const isAuthenticated = JSON.parse(localStorage.getItem('authenticated'));
 
@@ -45,7 +55,7 @@ router.beforeEach((to, from, next) => {
     name: "Login"
   });
   if (to.name === "Login" && isAuthenticated) next({
-    name: "Dashboard"
+    name: "App"
   });
   else next();
 });
