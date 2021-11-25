@@ -2,10 +2,10 @@ require('./bootstrap');
 
 import Vue from "vue";
 import router from "./router/index.js";
+// Vue Noty
 import Notifications from 'vue-notification'
-
-Vue.use(Notifications)
-
+// Vue Highcharts
+import HighchartsVue from 'highcharts-vue'
 // bootstrap import
 import {
   BootstrapVue,
@@ -14,6 +14,10 @@ import {
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Vue use
+Vue.use(HighchartsVue)
+Vue.use(Notifications)
 Vue.use(BootstrapVue)
 
 // import router

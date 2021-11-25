@@ -1,6 +1,7 @@
 $primary-color : #3BCEAC;
 $hover-prim-color : #46F3CB;
 
+// Component Primary
 body {
   margin: 0px;
   padding: 0px;
@@ -8,7 +9,22 @@ body {
   font-family: 'Montserrat', sans-serif !important;
   background-color: #EFF2F9 !important;
   color: #464646 !important;
+}
 
+.bg-primary-1 {
+  background-color: #118AB2 !important;
+}
+
+.bg-warning-1 {
+  background-color: #FFD166 !important;
+}
+
+.bg-success-1 {
+  background-color: #06D6A0 !important;
+}
+
+.bg-danger-1 {
+  background-color: #EF4970 !important;
 }
 
 .font-weight-semi-bold {
@@ -17,6 +33,10 @@ body {
 
 .font-weight-medium {
   font-weight: 500 !important;
+}
+
+.dropdown-item.active {
+  background-color: #D0CFCF !important;
 }
 
 
@@ -57,7 +77,9 @@ a {
   }
 }
 
+// Component Primary
 
+// Login Page
 .login-page {
   overflow-x: hidden;
   overflow-y: hidden;
@@ -89,6 +111,8 @@ a {
     }
   }
 }
+
+// Login Page
 
 // Polygon login page
 #img {
@@ -220,8 +244,9 @@ a {
   }
 }
 
+// Forgot Page
 
-// Admin Page
+// Navbar Admin
 .wrapper-nav {
   color: #6E7F8D;
   position: relative;
@@ -380,6 +405,7 @@ a {
     .dropdown {
 
       button {
+        text-transform: capitalize !important;
         background-color: #EFF2F9 !important;
         border-color: transparent !important;
         color: #6E7F8D !important;
@@ -405,6 +431,7 @@ a {
             align-items: center;
             display: flex;
 
+
             span {
               padding: 13px 0px;
               border-radius: 50%;
@@ -419,6 +446,9 @@ a {
 
 }
 
+
+
+// Content Admin Page
 .wrapper-main {
   color: #6E7F8D;
   position: relative;
@@ -472,3 +502,46 @@ a {
     }
   }
 }
+
+// Content Admin Page
+
+// Table Cargo
+.table-cargo {
+
+  table {
+    width: 100%;
+    overflow-x: visible;
+    border: transparent;
+
+    thead {
+
+      tr {
+
+        &:nth-child(1) {
+          margin-bottom: 21px;
+
+        }
+
+        th {
+          padding: 12px;
+        }
+      }
+    }
+
+    tbody {
+
+      tr {
+
+        &:nth-child(odd) {
+          background-color: #DDE1E9;
+        }
+
+        td {
+          padding: 12px;
+        }
+      }
+    }
+  }
+}
+
+// Table Cargo

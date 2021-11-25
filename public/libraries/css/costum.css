@@ -8,12 +8,32 @@ body {
   color: #464646 !important;
 }
 
+.bg-primary-1 {
+  background-color: #118AB2 !important;
+}
+
+.bg-warning-1 {
+  background-color: #FFD166 !important;
+}
+
+.bg-success-1 {
+  background-color: #06D6A0 !important;
+}
+
+.bg-danger-1 {
+  background-color: #EF4970 !important;
+}
+
 .font-weight-semi-bold {
   font-weight: 600 !important;
 }
 
 .font-weight-medium {
   font-weight: 500 !important;
+}
+
+.dropdown-item.active {
+  background-color: #D0CFCF !important;
 }
 
 .btn {
@@ -416,6 +436,7 @@ a:hover {
 }
 
 .wrapper-nav .topbar .dropdown button {
+  text-transform: capitalize !important;
   background-color: #EFF2F9 !important;
   border-color: transparent !important;
   color: #6E7F8D !important;
@@ -497,5 +518,27 @@ a:hover {
   width: 40px;
   height: 40px;
   padding: 7px;
+}
+
+.table-cargo table {
+  width: 100%;
+  overflow-x: visible;
+  border: transparent;
+}
+
+.table-cargo table thead tr:nth-child(1) {
+  margin-bottom: 21px;
+}
+
+.table-cargo table thead tr th {
+  padding: 12px;
+}
+
+.table-cargo table tbody tr:nth-child(odd) {
+  background-color: #DDE1E9;
+}
+
+.table-cargo table tbody tr td {
+  padding: 12px;
 }
 /*# sourceMappingURL=costum.css.map */

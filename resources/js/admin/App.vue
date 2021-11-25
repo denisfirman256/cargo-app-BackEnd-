@@ -14,7 +14,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3">
               <div class="card">
                 <div class="card-body d-flex justify-content-between align-items-center">
-                  <img :src="'../libraries/images/icons/box-time.svg'" alt="send-order" class="icon bg-primary">
+                  <img :src="'../libraries/images/icons/box-time.svg'" alt="send-order" class="icon bg-primary-1">
                   <div class="font-weight-medium ml-3">
                     Total Permintaan Pengiriman Barang
                   </div> 
@@ -30,7 +30,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3">
               <div class="card">
                 <div class="card-body d-flex justify-content-between align-items-center">
-                  <img :src="'../libraries/images/icons/truck-time.svg'" alt="send-order" class="icon bg-warning">
+                  <img :src="'../libraries/images/icons/truck-time.svg'" alt="send-order" class="icon bg-warning-1">
                   <div class="font-weight-medium ml-3">
                     Total Proses Pengiriman Barang
                   </div> 
@@ -46,7 +46,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3">
               <div class="card">
                 <div class="card-body d-flex justify-content-between align-items-center">
-                  <img :src="'../libraries/images/icons/truck-tick.svg'" alt="send-order" class="icon bg-success">
+                  <img :src="'../libraries/images/icons/truck-tick.svg'" alt="send-order" class="icon bg-success-1">
                   <div class="font-weight-medium ml-3">
                     Total Pengiriman Disetujui
                   </div> 
@@ -62,7 +62,7 @@
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3">
               <div class="card">
                 <div class="card-body d-flex justify-content-between align-items-center">
-                  <img :src="'../libraries/images/icons/truck-remove.svg'" alt="send-order" class="icon bg-danger">
+                  <img :src="'../libraries/images/icons/truck-remove.svg'" alt="send-order" class="icon bg-danger-1">
                   <div class="font-weight-medium ml-3">
                     Total Pengiriman Ditolak
                   </div> 
@@ -80,6 +80,7 @@
           <div class="card">
             <div class="card-body">
               <h1>Grafik Pengiriman Perbulan</h1>
+              <div id="container"></div>
             </div>
           </div>
           <!-- /Chart Analytic -->
@@ -101,7 +102,7 @@
 
                     <!-- User Profile -->
                     <div class="d-block align-items-center ml-3">
-                      <p class="font-weight-semi-bold mb-0">Usep Bujang</p>
+                      <p class="font-weight-semi-bold mb-0 text-truncate">Usep Bujang</p>
                       <small class="mb-0">Kantor Pusat</small>
                     </div>
                   </div>
@@ -291,22 +292,107 @@
       <!-- Analytic Feature -->
 
       <!-- Table Feature -->
-
       <!-- row 1/2 -->
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Tabel</h5>
+              <h5 class="card-title font-weight-bold">Tabel Status Pengiriman Barang</h5>
+              <div class="table-responsive table-cargo mx-2">
+                <table border="1">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>No Seri</th>
+                      <th>Permintaan Diri</th>
+                      <th>Tujuan</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>No</td>
+                      <td>No Seri</td>
+                      <td>Permintaan Diri</td>
+                      <td>Tujuan</td>
+                      <td><span class="badge badge-pill badge-success">Success</span></td>
+                    </tr>
+                    <tr>
+                      <td>No</td>
+                      <td>No Seri</td>
+                      <td>Permintaan Diri</td>
+                      <td>Tujuan</td>
+                      <td><span class="badge badge-pill badge-success">Success</span></td>
+                    </tr>
+                    <tr>
+                      <td>No</td>
+                      <td>No Seri</td>
+                      <td>Permintaan Diri</td>
+                      <td>Tujuan</td>
+                      <td><span class="badge badge-pill badge-success">Success</span></td>
+                    </tr>
+                    <tr>
+                      <td>No</td>
+                      <td>No Seri</td>
+                      <td>Permintaan Diri</td>
+                      <td>Tujuan</td>
+                      <td><span class="badge badge-pill badge-success">Success</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-3">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">
-                Ini Body
+              <h5 class="card-title font-weight-bold">
+                Tabel Stok Kritis
               </h5>
+              <div class="table-responsive table-cargo mx-2">
+                <table border="1">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Kode Barang</th>
+                      <th>Kategori Barang</th>
+                      <th>Nama Barang</th>
+                      <th>Sisa Jumlah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>No</td>
+                      <td>Kode Barang</td>
+                      <td>Kategori Barang</td>
+                      <td>Nama Barang</td>
+                      <td>Sisa Jumlah</td>
+                    </tr>
+                    <tr>
+                      <td>No</td>
+                      <td>Kode Barang</td>
+                      <td>Kategori Barang</td>
+                      <td>Nama Barang</td>
+                      <td>Sisa Jumlah</td>
+                    </tr>
+                    <tr>
+                      <td>No</td>
+                      <td>Kode Barang</td>
+                      <td>Kategori Barang</td>
+                      <td>Nama Barang</td>
+                      <td>Sisa Jumlah</td>
+                    </tr>
+                    <tr>
+                      <td>No</td>
+                      <td>Kode Barang</td>
+                      <td>Kategori Barang</td>
+                      <td>Nama Barang</td>
+                      <td>Sisa Jumlah</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -316,7 +402,63 @@
       <!-- row 1 -->
       <div class="card mb-5">
         <div class="card-body">
-          <h5 class="card-title">Tabel Permintaan Pengiriman Barang</h5>
+          <h5 class="card-title font-weight-bold">Tabel Permintaan Pengiriman Barang</h5>
+          <div class="table-responsive table-cargo mx-2">
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Permintaan Diri</th>
+                  <th>Nomer Resi</th>
+                  <th>Permintaan Barang</th>
+                  <th>Status</th>
+                  <th>Tanggal Permintaan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>No</td>
+                  <td>Permintaan Diri</td>
+                  <td>Nomer Resi</td>
+                  <td>Permintaan Barang</td>
+                  <td><span class="badge badge-pill badge-success">Success</span></td>
+                  <td>Tanggal Permintaan</td>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>Permintaan Diri</td>
+                  <td>Nomer Resi</td>
+                  <td>Permintaan Barang</td>
+                  <td><span class="badge badge-pill badge-success">Success</span></td>
+                  <td>Tanggal Permintaan</td>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>Permintaan Diri</td>
+                  <td>Nomer Resi</td>
+                  <td>Permintaan Barang</td>
+                  <td><span class="badge badge-pill badge-success">Success</span></td>
+                  <td>Tanggal Permintaan</td>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>Permintaan Diri</td>
+                  <td>Nomer Resi</td>
+                  <td>Permintaan Barang</td>
+                  <td><span class="badge badge-pill badge-success">Success</span></td>
+                  <td>Tanggal Permintaan</td>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>Permintaan Diri</td>
+                  <td>Nomer Resi</td>
+                  <td>Permintaan Barang</td>
+                  <td><span class="badge badge-pill badge-success">Success</span></td>
+                  <td>Tanggal Permintaan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <!-- row 1 -->
@@ -327,13 +469,25 @@
 </template>
 
 <script>
-import Vue from "vue"
+import {Chart} from 'highcharts-vue'
+import Highcharts from 'highcharts'
 
 
 export default {
-  // mounted() {
-  //   this.getUser();
-  // },
+  data() {
+    return {
+      // State Token
+      token: localStorage.getItem('token'),
+      // State User Login
+      user : {
+      },
+
+      errors: {}
+    }
+  },
+  mounted() {
+    this.getAdmin();
+  },
   methods: {
     getAdmin(){
       axios.get('/api/v1/auth/me', {headers : {Authorization: 'Bearer '+this.token}}).then((response) => {
@@ -347,6 +501,6 @@ export default {
         }
       })
     }
-  }
+  },
 }
 </script>

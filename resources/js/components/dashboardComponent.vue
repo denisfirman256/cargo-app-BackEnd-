@@ -21,7 +21,7 @@
           </div>
           <div class="sidebar-list">
             <li>
-              <a href="">
+              <router-link :to="{name: 'App'}">
                 <span class="icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22 10.9V4.1C22 2.6 21.36 2 19.77 2H15.73C14.14 2 13.5 2.6 13.5 4.1V10.9C13.5 12.4 14.14 13 15.73 13H19.77C21.36 13 22 12.4 22 10.9Z" stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -31,7 +31,7 @@
                   </svg>
                 </span>
                 <span class="title">Dashboard</span>
-              </a>
+              </router-link>
             </li>
             <li>
               <a href="">
@@ -163,7 +163,7 @@
           <!-- /user img -->
           <div>
             <b-dropdown :text="user.first_name+' '+user.last_name" block variant="primary" class="m-2 ml-4">
-              <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/profile-circle.svg'" alt="Profile"></span> Profil</b-dropdown-item>
+              <b-dropdown-item :to="{name: 'Profile'}"><span><img :src="'../libraries/images/icons/profile-circle.svg'" alt="Profile"></span> Profil</b-dropdown-item>
               <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/log.svg'" alt="Profile"></span> Log Aktivitas</b-dropdown-item>
               <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/archive.svg'" alt="Profile"></span> Pengaturan</b-dropdown-item>
               <b-dropdown-item href="#"><span><img :src="'../libraries/images/icons/setting.svg'" alt="Profile"></span> Arsip</b-dropdown-item>
@@ -210,7 +210,6 @@ export default {
     getAdmin(){
       axios.get('/api/v1/auth/me', {headers : {Authorization: 'Bearer '+this.token}}).then((response) => {
         this.user = response.data.authme
-        console.log(this.user)
       }).catch((error) => {
         if(error.response.status) {
           this.$router.push({

@@ -9,7 +9,9 @@ import ForgotPassword from '../pages/ForgotPassword.vue';
 import NotFound from '../pages/NotFound.vue';
 // Guest
 
+// Admin
 import App from '../admin/App.vue';
+import Profile from '../admin/pages/Profile.vue';
 
 const routes = [{
     name: 'Login',
@@ -31,6 +33,14 @@ const routes = [{
     name: 'App',
     path: '/admin/dashboard',
     component: App,
+    meta: {
+      layout: "App"
+    }
+  },
+  {
+    name: 'Profile',
+    path: '/admin/profile',
+    component: Profile,
     meta: {
       layout: "App"
     }
