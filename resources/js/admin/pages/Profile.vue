@@ -13,7 +13,7 @@
                 </div>
                 <div class="d-flex justify-content-center">
 
-                  <img :src="'../../libraries/images/preview_404.png'" alt="">
+                  <img v-if="user.photo" :src="user.photo" alt="" class="img-fluid rounded-circle">
                 </div>
                 <small class="mb-3">
                   <center>
