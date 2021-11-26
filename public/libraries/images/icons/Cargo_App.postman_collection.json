@@ -1,0 +1,1347 @@
+{
+	"info": {
+		"_postman_id": "807a1fbc-7f44-45d9-b511-860188532b6d",
+		"name": "Cargo App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{host}}api/v1/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "ihsan@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/login",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/auth/me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/auth/me",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/auth/edit/me {Update Profile}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Mindara",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Ihsan",
+							"type": "text"
+						},
+						{
+							"key": "no_telp",
+							"value": "085862120205",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ihsankarunia09@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/auth/edit/me",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"edit",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/auth/edit/photo_me {Update Photo Profile}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/Users/macbook/Downloads/db_cargo.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/auth/edit/photo_me",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"edit",
+						"photo_me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/auth/edit/password_me {Change Password Profile}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/Users/macbook/Downloads/db_cargo.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/auth/edit/password_me",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"edit",
+						"password_me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/logout",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/address_office",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/address_office",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"address_office"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/address_office {Store Data}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_office",
+							"value": "Uwa Denis",
+							"type": "text"
+						},
+						{
+							"key": "no_telp_office",
+							"value": "0888888888888",
+							"type": "text"
+						},
+						{
+							"key": "address_office",
+							"value": "Jl.Hj Basuki no.17",
+							"type": "text"
+						},
+						{
+							"key": "longtitude",
+							"value": "-1.0000000000",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "-1.0000000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/address_office",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"address_office"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff/{id} {Get Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/address_office/{id}/edit {Edit Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/address_office/1/edit",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"address_office",
+						"1",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/address_office {Update Data By ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_office",
+							"value": "Ihsan Karunia",
+							"type": "text"
+						},
+						{
+							"key": "no_telp_office",
+							"value": "0899999999999",
+							"type": "text"
+						},
+						{
+							"key": "address_office",
+							"value": "Jl. Jakarta no.28",
+							"type": "text"
+						},
+						{
+							"key": "longtitude",
+							"value": "-2.0000000000",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "-2.0000000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/address_office/1?name_office=ihsan&no_telp_office=0899999999999&address_office=Jl. Jakarta no.28&longtitude=-2.0000000000&latitude=-2.0000000000",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"address_office",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name_office",
+							"value": "ihsan"
+						},
+						{
+							"key": "no_telp_office",
+							"value": "0899999999999"
+						},
+						{
+							"key": "address_office",
+							"value": "Jl. Jakarta no.28"
+						},
+						{
+							"key": "longtitude",
+							"value": "-2.0000000000"
+						},
+						{
+							"key": "latitude",
+							"value": "-2.0000000000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/address_office/{id} {Delete Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/address_office/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"address_office",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff {Store Data}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_category",
+							"value": "Barang Berat",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff/{id} {Get Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff/{id} {Edit Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff/{id} {Update Data By ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_category",
+							"value": "Barang Ringan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff/1?name_category=Barang Ringan",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name_category",
+							"value": "Barang Ringan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/category_stuff/{id} {Delete Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/category_stuff/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"category_stuff",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/transportation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/transportation",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"transportation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/transportation {Store Data}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "status",
+							"value": "not used",
+							"type": "text"
+						},
+						{
+							"key": "transportation_type",
+							"value": "container",
+							"type": "text"
+						},
+						{
+							"key": "capacity",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "unit_weight",
+							"value": "ton",
+							"type": "text"
+						},
+						{
+							"key": "license_plate",
+							"value": "Z 1111 AZ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/transportation",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"transportation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/transportation/{id} {Get Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/transportation/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"transportation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/transportation/{id} {Edit Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/transportation/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"transportation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/transportation/{id} {Update Data By ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_category",
+							"value": "Barang Ringan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/transportation/1?status=not used&transportation_type=container&capacity=1000&unit_weight=kg&license_plate=B 2222 DO",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"transportation",
+						"1"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "not used"
+						},
+						{
+							"key": "transportation_type",
+							"value": "container"
+						},
+						{
+							"key": "capacity",
+							"value": "1000"
+						},
+						{
+							"key": "unit_weight",
+							"value": "kg"
+						},
+						{
+							"key": "license_plate",
+							"value": "B 2222 DO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/transportation/{id} {Delete Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/transportation/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"transportation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/courier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/courier",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/courier {Store Data}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "a89620244c6b4569b0db5e0f54e96df9",
+							"type": "text"
+						},
+						{
+							"key": "transportation_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "available",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/courier",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/courier/{id} {Get Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/courier/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"courier",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/courier/{id} {Edit Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/courier/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"courier",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/courier/{id} {Update Data By ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_category",
+							"value": "Barang Ringan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}api/v1/courier/1?user_id=a89620244c6b4569b0db5e0f54e96df9&transportation_id=2&status=available",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"courier",
+						"1"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "a89620244c6b4569b0db5e0f54e96df9"
+						},
+						{
+							"key": "transportation_id",
+							"value": "2"
+						},
+						{
+							"key": "status",
+							"value": "available"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}api/v1/courier/{id} {Delete Data by ID}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}api/v1/courier/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"v1",
+						"courier",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8000/"
+		},
+		{
+			"key": "token",
+			"value": "2|AfNVhHCsESvbeiYYSbKf0PwIF0jUR1RYhokWWjR1"
+		}
+	]
+}
