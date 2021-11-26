@@ -174,7 +174,7 @@ class AuthController extends Controller
             
             $file_name = Uuid::uuid4()->toString().'.'.$request->photo->extension();
             $request->photo->move(public_path('image_profile'), $file_name);
-            $path = "public/image_profile/{$file_name}";
+            $path = "/image_profile/{$file_name}";
 
             $user->photo = $path;
             $user->update();
