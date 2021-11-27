@@ -6,6 +6,7 @@ use App\Http\Controllers\APIController\AddressOfficeController;
 use App\Http\Controllers\APIController\CategoryStuffController;
 use App\Http\Controllers\APIController\TransportationController;
 use App\Http\Controllers\APIController\CourierController;
+use App\Http\Controllers\APIController\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,9 @@ Route::prefix('v1')->group(function() {
 
 		// Auth Logout
 		Route::get('logout', [App\Http\Controllers\APIController\AuthController::class, 'logout'])->name('logout');
+
+		// List User
+		Route::resource('users', UserController::class);
 
 		// Get Profile Login
 		Route::get('auth/me', [App\Http\Controllers\APIController\AuthController::class, 'me'])->name('profile');

@@ -9,6 +9,7 @@ use App\Rules\MatchOldPassword;
 use Auth;
 use Validator;
 use App\Models\User;    
+use App\Models\AddressOffice;
 use Ramsey\Uuid\Uuid;
 
 class AuthController extends Controller
@@ -73,10 +74,11 @@ class AuthController extends Controller
 
     	$data = array( 
     		'authme' => array(
-	    		'office_id' => $user->office_id,
+	    		'office_id' => array('id' => $user->office_id, 'name_offce' => AddressOffice::find($user->office_id)->name_office ?? '-'),
 	    		'photo' => $user->photo,
 	    		'first_name' => $user->first_name,
 	    		'last_name' => $user->last_name,
+                'gender' => $user->gender,
 	    		'no_telp' => $user->no_telp,
 	    		'email' => $user->email,
 	    		'level' => $user->level,
@@ -96,6 +98,7 @@ class AuthController extends Controller
             'last_name' => 'required|min:2|max:50',
             'no_telp' => 'required|numeric',
             'email' => 'required|email',
+            'gender' => 'required|string'
         ]);
 
         if ($validator->fails()) {
@@ -151,8 +154,7 @@ class AuthController extends Controller
 
             $message = [
                 'status_code' => 422,
-                'message' => $error,
-                'data' => []
+                'message' => $error
             ];
 
             return response()->json($message, 422);
