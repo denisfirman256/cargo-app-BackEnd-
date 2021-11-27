@@ -16,11 +16,12 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-        	'id' => Uuid::uuid4()->getHex(),
+        	'id' => Uuid::uuid4()->toString(),
         	'office_id' => 1,
         	'photo' => "photo.jpg",
         	'first_name' => "ihsan",
         	'last_name' => "karunia",
+            'gender' => "Laki - laki",
         	'no_telp' => "085862120205",
         	'email' => "ihsan@gmail.com",
         	'level' => "owner",
