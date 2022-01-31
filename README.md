@@ -1,3 +1,27 @@
+### After Clone Repo
+`composer update`
+
+### Copy .env
+`.env.example -> .env`
+
+### Change DB name to cargo-app in .env
+`local directory in cargo-app/.env`
+
+### Create Key Generate
+`php artisan key:generate`
+
+### migrate database
+`php artisan migrate`
+
+### Create user Account Fast
+`php artisan db:seed --class=AdminTableSeeder`
+
+### API Cargo-app Ready to use
+### Cargo-app for Front-end
+`https://github.com/firmansyahdenis20/cargo-app`
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
